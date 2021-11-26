@@ -142,7 +142,7 @@ def imshow_det_bboxes(img,
             f'{label_text}',
             bbox={
                 'facecolor': 'black',
-                'alpha': 0.8,
+                'alpha': 0.4,
                 'pad': 0.7,
                 'edgecolor': 'none'
             },
@@ -158,7 +158,7 @@ def imshow_det_bboxes(img,
     plt.imshow(img)
 
     p = PatchCollection(
-        polygons, facecolor='none', edgecolors=color, linewidths=thickness)
+        polygons, facecolor='none', edgecolors=color, linewidths=1)
     ax.add_collection(p)
 
     stream, _ = canvas.print_to_buffer()

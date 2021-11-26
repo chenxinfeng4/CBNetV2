@@ -8,7 +8,8 @@ test_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(
         type='MultiScaleFlipAug',
-        img_scale=[(1600, 1000), (1600, 1400), (1800, 1200), (1800, 1600)],
+        #img_scale=[(1600, 1000), (1600, 1400), (1800, 1200), (1800, 1600)],
+        img_scale=[(800, 500), (800, 700)],
         flip=True,
         transforms=[
             dict(type='Resize', keep_ratio=True),
@@ -20,5 +21,7 @@ test_pipeline = [
         ])
 ]
 data = dict(
-            val=dict(pipeline=test_pipeline),
-            test=dict(pipeline=test_pipeline))
+    samples_per_gpu=1,
+    workers_per_gpu=1,
+    val=dict(pipeline=test_pipeline),
+    test=dict(pipeline=test_pipeline))

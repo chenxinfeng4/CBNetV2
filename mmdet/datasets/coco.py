@@ -556,3 +556,8 @@ class CocoDataset(CustomDataset):
         if tmp_dir is not None:
             tmp_dir.cleanup()
         return eval_results
+
+
+@DATASETS.register_module()
+class CocoDatasetRat(CocoDataset):
+    CLASSES = ('rat_black', 'rat_white')
